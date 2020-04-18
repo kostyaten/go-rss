@@ -9,11 +9,10 @@ on:
 jobs:
   test:
     name: Go ${{ matrix.go }} code testing
-    runs-on: ubuntu-latest
+    runs-on: alpine
     strategy:
       matrix:
         go: ['1.13', '1.14']
-
     steps:
       - uses: actions/checkout@v2
       - name: Setup go
