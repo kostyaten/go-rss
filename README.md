@@ -32,7 +32,7 @@ You can get go-rss by using
 ```
 
 
-### Parse rss URL 
+### Parse rss url 
 ```go
 
   import "github.com/kostya-ten/go-rss"
