@@ -15,6 +15,19 @@ You can get go-rss by using
     $ go get -u github.com/kostya-ten/go-rss
 
 
+### Parse rss file
 ```go
 
+    import "github.com/kostya-ten/go-rss"
+
+    func main() {
+
+	    feed, err := rss.ParseFile(filename)
+
+        if err != nil {
+		    panic(err)
+	    }
+
+	    title := feed.Channel.Title
+        fmt.Println(title)
 ```
