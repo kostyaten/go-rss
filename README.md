@@ -9,7 +9,7 @@
 
 ## Getting It
 
-You can get go-rss by using::
+*You can get go-rss by using*
 
     $ go get -u github.com/kostya-ten/go-rss
 
