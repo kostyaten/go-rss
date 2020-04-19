@@ -1,6 +1,7 @@
 RSS 2.0 Parser
 ==============
 
+![Go](https://github.com/kostya-ten/go-rss/workflows/Go/badge.svg?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/kostya-ten/go-rss)](https://goreportcard.com/report/github.com/kostya-ten/go-rss)
 [![GoDoc](https://godoc.org/github.com/kostya-ten/go-rss?status.svg&style=flat)](https://pkg.go.dev/github.com/kostya-ten/go-rss)
 
