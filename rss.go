@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-// https://validator.w3.org/feed/docs/rss2.html
+//https://validator.w3.org/feed/docs/rss2.html
 
 type Rss struct {
 	Channel Channel `xml:"channel"`

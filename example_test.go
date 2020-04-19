@@ -7,13 +7,13 @@ import (
 )
 
 func ExampleParseFile() {
-	rss, err := ParseFile("parser_test.rss")
+	feed, err := ParseFile("parser_test.rss")
 	if err != nil {
 		panic(err)
 	}
 
-	title := rss.Channel.Title
-	description := rss.Channel.Description
+	title := feed.Channel.Title
+	description := feed.Channel.Description
 
 	fmt.Println("Title:", title)
 	fmt.Println("Description:", description)
@@ -25,26 +25,26 @@ func ExampleParseByte() {
 		panic(err)
 	}
 
-	rss, err := ParseByte(b)
+	feed, err := ParseByte(b)
 	if err != nil {
 		panic(err)
 	}
 
-	title := rss.Channel.Title
-	description := rss.Channel.Description
+	title := feed.Channel.Title
+	description := feed.Channel.Description
 
 	fmt.Println("Title:", title)
 	fmt.Println("Description:", description)
 }
 
 func ExampleParseString() {
-	rss, err := ParseString("<rss></rss>")
+	feed, err := ParseString("<rss></rss>")
 	if err != nil {
 		panic(err)
 	}
 
-	title := rss.Channel.Title
-	description := rss.Channel.Description
+	title := feed.Channel.Title
+	description := feed.Channel.Description
 
 	fmt.Println("Title:", title)
 	fmt.Println("Description:", description)
@@ -53,13 +53,13 @@ func ExampleParseString() {
 func ExampleParseURL() {
 	rawurl := "http://static.userland.com/gems/backend/rssTwoExample2.xml"
 
-	rss, err := ParseURL(rawurl, &http.Client{})
+	feed, err := ParseURL(rawurl, &http.Client{})
 	if err != nil {
 		panic(err)
 	}
 
-	title := rss.Channel.Title
-	description := rss.Channel.Description
+	title := feed.Channel.Title
+	description := feed.Channel.Description
 
 	fmt.Println("Title:", title)
 	fmt.Println("Description:", description)
