@@ -39,12 +39,11 @@ You can get go-rss by using
 
   func main() {
     feed, err := rss.ParseURL("http://static.userland.com/gems/backend/rssTwoExample2.xml", &http.Client{})
-	if err != nil {
-		panic(err)
+    if err != nil {
+      panic(err)
     }
 
     title := feed.Channel.Title
     fmt.Println(title)
   }
 ```
-
