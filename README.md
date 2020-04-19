@@ -30,3 +30,21 @@ You can get go-rss by using
     fmt.Println(title)
   }
 ```
+
+
+### Parse rss URL 
+```go
+
+  import "github.com/kostya-ten/go-rss"
+
+  func main() {
+    feed, err := rss.ParseURL("http://static.userland.com/gems/backend/rssTwoExample2.xml", &http.Client{})
+	if err != nil {
+		panic(err)
+    }
+
+    title := feed.Channel.Title
+    fmt.Println(title)
+  }
+```
+
