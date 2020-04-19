@@ -90,9 +90,17 @@ func (t *DateTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 
 	parse, err := time.Parse(time.RFC1123, v)
 	if err != nil {
-		return err
+		parse, err = time.Parse(time.RFC1123Z, v)
+		if err != nil {
+			return err
+		}
 	}
 
 	t.Time = parse
 	return nil
+}
+
+type BulkOptions struct {
+	maxgoroutine int
+	buffer_chan  int
 }

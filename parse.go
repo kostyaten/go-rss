@@ -74,3 +74,44 @@ func ParseURL(rawurl string, client *http.Client) (*Rss, error) {
 	}
 	return ParseByte(b)
 }
+
+// Parse URL bulk
+func ParseBulk(rawurls []string, client *http.Client, options *BulkOptions) []Rss {
+
+	urlChan := make(chan string, options.buffer_chan)
+	resChan := make(chan *Rss, options.buffer_chan)
+
+	var sliceRss []Rss
+
+	for i := 0; i < options.maxgoroutine; i++ {
+		go func(urlChan chan string, resChan chan *Rss, id int) {
+			for {
+				rawurl, ok := <-urlChan
+				if ok {
+					feed, err := ParseURL(rawurl, client)
+					if err != nil {
+						panic(err)
+					}
+					resChan <- feed
+				} else {
+					break
+				}
+			}
+		}(urlChan, resChan, i)
+	}
+
+	go func() {
+		for _, v := range rawurls {
+			urlChan <- v
+		}
+		close(urlChan)
+	}()
+
+	for i := 0; i < len(rawurls); i++ {
+		res := <-resChan
+		sliceRss = append(sliceRss, *res)
+	}
+
+	close(resChan)
+	return sliceRss
+}

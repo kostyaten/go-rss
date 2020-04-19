@@ -117,3 +117,17 @@ func TestChannelImage(t *testing.T) {
 	}
 
 }
+
+func TestParseBulkURL(t *testing.T) {
+	urls := []string{
+		"https://lenta.ru/rss",
+	}
+
+	resultRss := ParseBulk(urls, &http.Client{}, &BulkOptions{maxgoroutine: 2, buffer_chan: 1})
+	for _, v := range resultRss {
+		if v.Channel.Title != "Lenta.ru : Новости" {
+			t.Error("Invalid error parse Channel->Title")
+		}
+	}
+
+}
