@@ -18,16 +18,15 @@ You can get go-rss by using
 ### Parse rss file
 ```go
 
-    import "github.com/kostya-ten/go-rss"
+	import "github.com/kostya-ten/go-rss"
 
-    func main() {
+	func main() {
+		feed, err := rss.ParseFile(filename)
+		if err != nil {
+			panic(err)
+		}
 
-	    feed, err := rss.ParseFile(filename)
-
-        if err != nil {
-		    panic(err)
-	    }
-
-	    title := feed.Channel.Title
-        fmt.Println(title)
+		title := feed.Channel.Title
+		fmt.Println(title)
+	}
 ```
