@@ -118,7 +118,7 @@ func TestChannelImage(t *testing.T) {
 
 }
 
-func TestParseBulkURL(t *testing.T) {
+func TestParseBulk(t *testing.T) {
 	urls := []string{
 		"https://lenta.ru/rss",
 	}

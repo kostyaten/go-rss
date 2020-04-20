@@ -64,3 +64,17 @@ func ExampleParseURL() {
 	fmt.Println("Title:", title)
 	fmt.Println("Description:", description)
 }
+
+func ExampleParseBulk() {
+	urls := []string{
+		"https://lenta.ru/rss",
+		"https://ria.ru/export/rss2/index.xml",
+	}
+
+	resultRss := ParseBulk(urls, &http.Client{}, &BulkOptions{maxgoroutine: 10, buffer_chan: 10})
+	for _, v := range resultRss {
+		fmt.Println("Title:", v.Channel.Title)
+		fmt.Println("Description:", v.Channel.Description)
+	}
+
+}
