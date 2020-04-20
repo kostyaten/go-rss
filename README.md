@@ -54,18 +54,18 @@ You can get go-rss by using
   import "github.com/kostya-ten/go-rss"
 
   func main() {
-	urls := []string{
-		"https://lenta.ru/rss",
-		"https://www.interfax.ru/rss.asp",
-		"https://ria.ru/export/rss2/index.xml",
-		"http://static.feed.rbc.ru/rbc/logical/footer/news.rss",
-		"http://tass.ru/rss/v2.xml",
-		"https://www.vesti.ru/vesti.rss",
-	}
+    urls := []string{
+      "https://lenta.ru/rss",
+      "https://www.interfax.ru/rss.asp",
+      "https://ria.ru/export/rss2/index.xml",
+      "http://static.feed.rbc.ru/rbc/logical/footer/news.rss",
+      "http://tass.ru/rss/v2.xml",
+      "https://www.vesti.ru/vesti.rss",
+    }
 
-	resultRss := rss.ParseBulk(urls, &http.Client{}, &BulkOptions{maxgoroutine: 10, buffer_chan: 10})
-	for _, v := range resultRss {
-		fmt.Println(v.Channel.Title)
-	}
+    resultRss := rss.ParseBulk(urls, &http.Client{}, &BulkOptions{maxgoroutine: 10, buffer_chan: 10})
+    for _, v := range resultRss {
+      fmt.Println(v.Channel.Title)
+    }
   }
 ```
